@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MSMK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  html,body {
+    padding: ; 0;
+  }
+  
+body {
+  display: flex;
+  flex-direction: column;
+}
+  
+  #chat-bar {
+    display: flex;
+  flex-direction: row;
+    background-color: gray;
+    min-height: 10px;
+  }
+  
+  #chat {
+    background-color: black;
+    color: white;
+    min-height: 100px;
+  }
+  
+  #chat-send {
+    background-color: green;
+    min-height: 10px;
+  }
+  
+  #chat-input {
+    flex-grow: 1;
+    background-color: darkgray;
+    min-height: 10px;
+  }
+  </style>
+  <script>
+    function getCHat() {
+      fetch("endpoint/test-py")
+      .then(function(response) {
+        response.text()
+        .then(function(text) {
+          getOutput().innerHTML = text;
+        });
+    });
+    }
+    </script>
+</head>
+
+<body>
+  <div id="chat-bar">
+    <div id="chat-input" contenteditable="true"></div>
+    <div id="chat-send">Send</div>
+  </div>
+  <div id="chat"></div>
+</body>
+
+</html>
